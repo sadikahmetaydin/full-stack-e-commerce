@@ -1,12 +1,14 @@
 import "./App.css";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import Policy from "./components/Policy/Policy";
+import Footer from "./components/Layout/Footer/Footer";
+import Header from "./components/Layout/Header/Header";
+import Policy from "./components/Layout/Policy/Policy";
+import Sliders from "./components/Slider/Sliders";
 
 const App = () => {
   return (
     <>
       <Header />
+      <Sliders />
       <Policy />
       <Footer />
     </>
