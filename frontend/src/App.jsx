@@ -6,6 +6,7 @@ import Products from "./components/Products/Products";
 import Sliders from "./components/Slider/Sliders";
 import "./App.css";
 import Campings from "./components/Campaings/Campings";
+import Blogs from "./components/Blogs/Blogs";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Products />
       <Campings />
       <Products />
+      <Blogs />
       <Policy />
       <Footer />
     </>
