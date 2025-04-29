@@ -5,6 +5,7 @@ import Policy from "./components/Layout/Policy/Policy";
 import Products from "./components/Products/Products";
 import Sliders from "./components/Slider/Sliders";
 import "./App.css";
+import Campings from "./components/Campaings/Campings";
 
 const App = () => {
   return (
@@ -12,6 +13,8 @@ const App = () => {
       <Header />
       <Sliders />
       <Categories />
+      <Products />
+      <Campings />
       <Products />
       <Policy />
       <Footer />
