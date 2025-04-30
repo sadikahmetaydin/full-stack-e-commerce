@@ -7,6 +7,7 @@ import Sliders from "./components/Slider/Sliders";
 import "./App.css";
 import Campings from "./components/Campaings/Campings";
 import Blogs from "./components/Blogs/Blogs";
+import Brands from "./components/Brands/Brands";
 
 const App = () => {
   return (
@@ -18,9 +19,11 @@ const App = () => {
       <Campings />
       <Products />
       <Blogs />
+      <Brands />
       <Policy />
       <Footer />
     </>
   );
 };
+
 export default App;
