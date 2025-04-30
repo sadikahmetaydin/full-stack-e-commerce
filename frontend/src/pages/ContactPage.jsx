@@ -8,7 +8,6 @@ const ContactPage = () => {
     <>
      <Header />
      <Contact />
-     <Policy />
      <Footer />
     </>
   );

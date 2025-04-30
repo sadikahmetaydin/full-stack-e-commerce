@@ -5,7 +5,6 @@ import Campings from "../components/Campaings/Campings";
 import Categories from "../components/Categories/Categories";
 import Footer from "../components/Layout/Footer/Footer";
 import Header from "../components/Layout/Header/Header";
-import Policy from "../components/Layout/Policy/Policy";
 import Products from "../components/Products/Products";
 import Slider from "../components/Slider/Sliders";
 
@@ -21,7 +20,6 @@ const HomePage = () => {
       <Blogs />
       <Brands />
       <CampaingSingle />
-      <Policy />
       <Footer />
     </>
   );

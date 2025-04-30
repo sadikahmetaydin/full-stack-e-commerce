@@ -13,7 +13,6 @@ const ShopPage = () => {
       <Products />
       <CampaingSingle />
       <Products />
-      <Policy />
       <Footer />
     </>
   );
