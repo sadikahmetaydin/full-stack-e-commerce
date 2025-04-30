@@ -8,6 +8,7 @@ import "./App.css";
 import Campings from "./components/Campaings/Campings";
 import Blogs from "./components/Blogs/Blogs";
 import Brands from "./components/Brands/Brands";
+import CampaingSingle from "./components/CampaignSingle/CampaingSingle";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
       <Products />
       <Blogs />
       <Brands />
+      <CampaingSingle />
       <Policy />
       <Footer />
     </>
