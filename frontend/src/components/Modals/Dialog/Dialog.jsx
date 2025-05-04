@@ -1,4 +1,5 @@
 import "./Dialog.css";
+import PropTypes from "prop-types";
 
 const Dialog = ({ isDialogShow, setIsDialogShow }) => {
   return (
@@ -36,3 +37,8 @@ const Dialog = ({ isDialogShow, setIsDialogShow }) => {
 }
 
 export default Dialog;
+
+Dialog.PropTypes = {
+  isDialogShow: PropTypes.bool,
+  setIsDialogShow: PropTypes.func,
+}
