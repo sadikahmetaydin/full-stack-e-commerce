@@ -1,18 +1,24 @@
 import Footer from "../components/Layout/Footer/Footer";
 import Header from "../components/Layout/Header/Header";
 import Proptypes from "prop-types";
+import Search from "../components/Modals/Search/Search";
+import { useState } from "react";
 
-const MainLayout = ({children}) => {
+const MainLayout = ({ children }) => {
+
+  const [isSearchShow, setIsSearchShow] = useState(false);
+
   return (
-    <>
-      <Header />
+    <div className="main-layout">
+      <Search isSearchShow={isSearchShow} setIsSearchShow={setIsSearchShow} />
+      <Header setIsSearchShow={setIsSearchShow} />
       {children}
       <Footer />
-    </>
+    </div>
   );
 };
 export default MainLayout;
 
 MainLayout.prototype = {
-  children : Proptypes.node
-}
+  children: Proptypes.node,
+};
