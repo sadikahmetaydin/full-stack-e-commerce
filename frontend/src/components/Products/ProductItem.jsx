@@ -1,11 +1,10 @@
+import { useContext } from "react";
+import { CartContext } from "../../context/CartProvider";
 import "./ProductItem.css";
  
- const ProductItem = ({ productItem, setCartItems }) => {
+const ProductItem = ({ productItem }) => {
 
-  const addToCart = (cartItem) => {
-    // setCartItems([...cartItems, cartItem]);
-    setCartItems((prevCart) => [...prevCart, cartItem]);
-  };
+  const { addToCart } = useContext(CartContext);
 
   return (
     <div className="product-item glide__slide glide__slide--active">
@@ -60,4 +59,4 @@ import "./ProductItem.css";
    );
  };
  
- export default ProductItem;
+export default ProductItem;
