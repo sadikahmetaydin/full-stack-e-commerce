@@ -12,11 +12,11 @@ import ProductDetailsPage from "./pages/ProductDetailsPage";
 const App = () => {
   return (
     <>
-      <HomePage />
+      {/* <HomePage /> */}
       {/* <ShopPage /> */}
       {/* <ContactPage /> */}
       {/* <AuthPage /> */}
-      {/* <CartPage /> */}
+      <CartPage />
       {/* <BlogPage /> */}
       {/* <BlogDetailsPage /> */}
       {/* <ProductDetailsPage /> */}
