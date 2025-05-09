@@ -7,20 +7,13 @@ import CartPage from "./pages/CartPage";
 import BlogPage from "./pages/BlogPage";
 import BlogDetailsPage from "./pages/BlogDetailsPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
-
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   return (
-    <>
-      {/* <HomePage /> */}
-      {/* <ShopPage /> */}
-      {/* <ContactPage /> */}
-      {/* <AuthPage /> */}
-      <CartPage />
-      {/* <BlogPage /> */}
-      {/* <BlogDetailsPage /> */}
-      {/* <ProductDetailsPage /> */}
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+    </Routes>
   );
 };
 
