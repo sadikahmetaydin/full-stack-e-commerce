@@ -19,7 +19,7 @@ const Search = ({ isSearchShow, setIsSearchShow }) => {
           </div>
           <div className="results">
             <a href="#" className="result-item">
-              <img src="img/products/product1/1.png" className="search-thumb" alt="" />
+              <img src="/img/products/product1/1.png" className="search-thumb" alt="" />
               <div className="search-info">
                 <h4>Analogue Resin Strap</h4>
                 <span className="search-sku">SKU: PD0016</span>
@@ -27,7 +27,7 @@ const Search = ({ isSearchShow, setIsSearchShow }) => {
               </div>
             </a>
             <a href="#" className="result-item">
-              <img src="img/products/product2/1.png" className="search-thumb" alt="" />
+              <img src="/img/products/product2/1.png" className="search-thumb" alt="" />
               <div className="search-info">
                 <h4>Analogue Resin Strap</h4>
                 <span className="search-sku">SKU: PD0016</span>
