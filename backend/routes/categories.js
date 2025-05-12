@@ -2,10 +2,19 @@ const express = require("express");
 const router = express.Router();
 const Category = require("../models/Category.js");
 
+// Get all category
 router.get("/", async (req, res) => {
-  res.send("Get all categories");
+  try {
+    
+    const categories = await Category.find();
+    res.status(200).json(categories);
+
+  } catch (error) {
+    res.status(500).json({ error: "Server error." });
+  }
 });
 
+// Create a new category
 router.post("/", async (req, res) => {
   try {
     
