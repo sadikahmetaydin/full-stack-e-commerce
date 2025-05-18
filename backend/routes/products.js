@@ -14,6 +14,38 @@ router.post("/", async (req, res) => {
     console.log(error);
     res.status(500).json({ error: "Server error." });
   }
+});
+
+// Get all products
+router.get("/", async (req, res) => {
+  try {
+
+    const prodcuts = await Product.find();
+    res.status(200).json(prodcuts);
+    
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Server error." });
+  }
+});
+
+// Get one product
+router.get("/:productId", async (req, res) => {
+  try {
+
+    const productId = req.params.productId;
+
+    try {
+      const product = await Product.findById(productId);
+      res.status(200).json(product);
+    } catch (error) {
+      res.status(404).json({ error: "Product not found!" });
+    }
+    
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Server error." });
+  }
 })
 
 module.exports = router;
