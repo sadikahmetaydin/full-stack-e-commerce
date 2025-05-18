@@ -36,11 +36,11 @@ router.get("/:categoryId", async (req, res) => {
   
   try {
     const category = await Category.findById(categoryId);
+    res.status(200).json(category);
   } catch (error) {
     res.status(404).json({ error: "Category not found." });
   }
   
-  res.status(200).json(category);
 
  } catch (error) {
   res.status(500).json({ error: "Server error." });
