@@ -34,14 +34,10 @@ router.get("/:productId", async (req, res) => {
   try {
 
     const productId = req.params.productId;
+    const product = await Product.findById(productId);
+    if (!product) return res.status(404).json({ error: "Product not found!" });
+    res.status(200).json(product);
 
-    try {
-      const product = await Product.findById(productId);
-      res.status(200).json(product);
-    } catch (error) {
-      res.status(404).json({ error: "Product not found!" });
-    }
-    
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Server error." });
@@ -64,5 +60,20 @@ router.put("/:productId", async (req, res) => {
     res.status(500).json({ error: "Server error." });
   }
 });
+
+// Delete product
+router.delete("/:productId", async (req, res) => {
+  try {
+    
+    const productId = req.params.productId;
+    const deleteProduct = await Product.findByIdAndDelete(productId);
+    if (!deleteProduct) return res.status(404).json({ error: "Product not found!" });
+    res.status(200).json(deleteProduct);
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Server error." });
+  }
+})
 
 module.exports = router;
