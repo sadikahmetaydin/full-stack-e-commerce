@@ -61,6 +61,23 @@ router.get("/code/:couponCode", async (req, res) => {
     console.log(error);
     res.status(500).json({ error: "Server error." });
   }
-})
+});
+
+// Update coupon
+router.put("/:couponId", async (req, res) => {
+  try {
+
+    const couponId = req.params.couponId;
+    const updates = req.body;
+    const existingCoupon = await Coupon.findById(couponId);
+    if (!existingCoupon) return res.status(404).json({ error: "Coupon not found!" });
+    const updatedCoupon = await Coupon.findByIdAndUpdate( couponId, updates, { new: true });
+    res.status(200).json( updatedCoupon );
+    
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Server error." });
+  }
+});
 
 module.exports = router;
