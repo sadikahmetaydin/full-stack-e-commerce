@@ -80,4 +80,19 @@ router.put("/:couponId", async (req, res) => {
   }
 });
 
+// Delete coupon
+router.delete("/:couponId", async (req, res) => {
+  try {
+
+    const couponId = req.params.couponId;
+    const deleteCoupon = await Coupon.findByIdAndDelete(couponId);
+    if (!deleteCoupon) return res.status(404).json({ error: "Coupon not found!" });
+    res.status(200).json(deleteCoupon);
+    
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Server error." });
+  }
+})
+
 module.exports = router;
