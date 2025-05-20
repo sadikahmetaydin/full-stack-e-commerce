@@ -1,18 +1,57 @@
+import { useState } from "react"
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
+
+    const [formData, setFormData] = useState({
+        email: "",
+        password: ""
+    });
+
+    const navigate = useNavigate();
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value});
+    };
+
+    const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(`http://localhost:5000/api/auth/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem("user", JSON.stringify(data));
+        window.alert("Login is successfully");
+        navigate("/");
+      } else {
+        window.alert("Login is not successfully");
+      }
+    } catch (error) {
+      window.alert("Somethig went wrong!", error);
+    }
+  };
+
   return (
     <div className="account-column">
       <h2>Login</h2>
-      <form>
+      <form onSubmit={handleLogin}>
           <div>
               <label>
                   <span>Username or email address <span className="required">*</span></span>
-                  <input type="text" />
+                  <input type="text" name="email" onChange={handleInputChange} />
               </label>
           </div>
           <div>
               <label>
                   <span>Password <span className="required">*</span></span>
-                  <input type="password" />
+                  <input type="password" name="password" onChange={handleInputChange} />
               </label>
           </div>
           <p className="remember">
