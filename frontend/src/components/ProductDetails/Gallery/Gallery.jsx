@@ -19,9 +19,12 @@ function PrevBtn({ onClick }) {
   )
 }
 
-const Gallery = () => {
+const Gallery = ({ singleProduct }) => {
 
-  const [activeImg, setActiveImg] = useState(productsData[0].img.singleImage);
+  const [activeImg, setActiveImg] = useState({
+    img: singleProduct.img[0],
+    imgIndex: 0
+  });
 
   const sliderSettings = {
     dots: false,
@@ -35,16 +38,16 @@ const Gallery = () => {
   return (
     <div className="product-gallery">
         <div className="single-image-wrapper">
-            <img src={`/${activeImg}`} id="single-image" alt="" />
+            <img src={`${activeImg.img}`} id="single-image" alt="" />
         </div>
         <div className="product-thumb">
             <div className="glide__track" data-glide-el="track">
               <ol className="gallery-thumbs glide__slides">
                 <Slider {...sliderSettings}>
                     {
-                      productsData[0].img.thumbs.map((itemImg, index) => (
-                        <li className="glide__slide glide__slide--active" key={index} onClick={() => setActiveImg(itemImg)}>
-                          <img src={`/${itemImg}`} alt="" className={`img-fluid ${itemImg === activeImg ? "active" : ""}`}/>
+                      singleProduct.img.map((itemImg, index) => (
+                        <li className="glide__slide glide__slide--active" key={index} onClick={() => setActiveImg({ img: itemImg, imgIndex: index })}>
+                          <img src={`${itemImg}`} alt="" className={`img-fluid ${itemImg === activeImg ? "active" : ""}`}/>
                         </li>
                       ))
                     }
