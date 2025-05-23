@@ -1,5 +1,4 @@
 import { useState } from "react";
-import productsData from "../../../data.json";
 import Slider from "react-slick";
 import "./Gallery.css";
 
