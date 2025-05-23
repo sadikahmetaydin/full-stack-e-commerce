@@ -21,7 +21,7 @@ const CartTable = () => {
         {
           cartItems.map((item) => (
             
-            <CartItem cartItem={item} key={item.id} />
+            <CartItem cartItem={item} key={item._id} />
 
           ))
         }
