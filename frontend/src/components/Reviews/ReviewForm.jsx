@@ -1,18 +1,53 @@
 import { useState } from "react";
 
-const ReviewForm = () => {
+const ReviewForm = ({ singleProduct }) => {
 
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState("");
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null
 
   const handleRatingChange = (e, newRating) => {
     e.preventDefault();
     setRating(newRating);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = { rating: rating, review: review };
+    const formData = {
+      reviews: [
+        ...singleProduct.reviews,
+        {
+          text: review,
+          rating: parseInt(rating),
+          user: user.id,
+        },
+      ],
+    };
+
+    try {
+      const res = await fetch(`${apiUrl}/api/products/${singleProduct._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        window.alert("Something went wrong!");
+        return;
+      }
+
+      if(res.ok) {
+        setReview("");
+        setRating(0);
+        window.alert("Commet is add successfully.");
+      }
+    } catch (error) {
+      console.log(error);
+      window.alert("Something went wrong!");
+    }
   };
 
   return (
@@ -59,7 +94,7 @@ const ReviewForm = () => {
           Your review
           <span className="required">*</span>
         </label>
-        <textarea id="comment" cols="50" rows="10" onChange={(e) => setReview(e.target.value)}></textarea>
+        <textarea id="comment" cols="50" rows="10" onChange={(e) => setReview(e.target.value)}  value={review}></textarea>
       </div>
       <div className="comment-form-cookies">
         <input id="cookies" type="checkbox" />
