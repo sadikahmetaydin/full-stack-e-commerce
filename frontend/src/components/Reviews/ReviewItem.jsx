@@ -1,4 +1,9 @@
-const ReviewItem = () => {
+const ReviewItem = ({ reviewItem }) => {
+
+  const { text, createdAt } = reviewItem;
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  const formattedDate = new Date(createdAt).toLocaleDateString("tr-TR", options);
+
   return (
     <li className="comment-item">
       <div className="comment-avatar">
@@ -23,14 +28,13 @@ const ReviewItem = () => {
           </li>
         </ul>
         <div className="comment-meta">
-          <strong>admin</strong>
+          <strong> admin </strong>
           <span>-</span>
-          <time>April 23, 2022</time>
+          <time>{formattedDate}</time>
         </div>
         <div className="comment-description">
           <p>
-            Sed perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium.
+            {text}
           </p>
         </div>
       </div>

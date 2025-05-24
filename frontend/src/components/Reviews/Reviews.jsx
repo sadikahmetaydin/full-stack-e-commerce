@@ -2,7 +2,7 @@ import ReviewForm from "./ReviewForm";
 import ReviewItem from "./ReviewItem";
 import "./Reviews.css";
 
-const Reviews = ({ active, singleProduct }) => {
+const Reviews = ({ active, singleProduct, setSingleProduct }) => {
   return (
     <div className={`tab-panel-reviews ${active}`}>
         
@@ -15,7 +15,7 @@ const Reviews = ({ active, singleProduct }) => {
                   <ol className="comment-list">
                     {
                       singleProduct.reviews.map((item, index) => {
-                        <ReviewItem key={index} item={item} />
+                        <ReviewItem key={index} item={item} reviewItem={item} />
                       })
                     }
                   </ol>
@@ -28,7 +28,7 @@ const Reviews = ({ active, singleProduct }) => {
 
         <div className="review-form-wrapper">
           <h2>Add a review</h2>
-          <ReviewForm singleProduct={singleProduct} />
+          <ReviewForm singleProduct={singleProduct} setSingleProduct={setSingleProduct} />
         </div>
       </div>
   )

@@ -26,7 +26,7 @@ const ProductDetailsPage = () => {
 
   }, [apiUrl, productId])
 
-  return singleProduct ? <ProductDetails singleProduct={singleProduct} /> : <p>Product Loading...</p>
+  return singleProduct ? <ProductDetails singleProduct={singleProduct} setSingleProduct={setSingleProduct} /> : <p>Product Loading...</p>
 };
 
 export default ProductDetailsPage;

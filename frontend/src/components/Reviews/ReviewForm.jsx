@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ReviewForm = ({ singleProduct }) => {
+const ReviewForm = ({ singleProduct, setSingleProduct }) => {
 
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState("");
@@ -39,11 +39,12 @@ const ReviewForm = ({ singleProduct }) => {
         return;
       }
 
-      if(res.ok) {
-        setReview("");
-        setRating(0);
-        window.alert("Commet is add successfully.");
-      }
+      const data = await res.json();
+      setSingleProduct(data);
+      setReview("");
+      setRating(0);
+      window.alert("Commet is add successfully.");
+
     } catch (error) {
       console.log(error);
       window.alert("Something went wrong!");
