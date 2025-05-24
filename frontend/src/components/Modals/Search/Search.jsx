@@ -2,12 +2,34 @@ import "./Search.css";
 import PropTypes from "prop-types";
 
 const Search = ({ isSearchShow, setIsSearchShow }) => {
+
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    const productName = e.target[0].value;
+
+    try {
+      const res = await fetch(`${apiUrl}/api/products/search/${productName}`);
+
+      if(!res.ok) {
+        window.alert("Product fetch error!");
+        return;
+      }
+
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className={`modal-search ${isSearchShow ? "show" : ""} `}>
       <div className="modal-wrapper">
         <h3 className="modal-title">Search for products</h3>
         <p className="modal-text">Start typing to see products you are looking for.</p>
-        <form className="search-form">
+        <form className="search-form" onSubmit={handleSearch}>
           <input type="text" placeholder="Search a product" />
           <button>
             <i className="bi bi-search"></i>
