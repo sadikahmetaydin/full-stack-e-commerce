@@ -2,7 +2,7 @@
 E-Commerce website build with MERN Stack.
 
 # 💡About this project 
-.....
+In this project it consists of Front-end and Back-end parts. I used MERN Stack technologies and other dependencies. This website have a lots of features, like a create, read, update, delete and also register and login. For instance, you'll add some clothes your basked and then  you'll see created order in your basked. If you can't find any clothes you want click search button and easly search which you want clothes.There are four main section for instance home, shop, blog and contact page. If you have not  an account, quite easly register and login your account.
 
 
 ## ⚡Technologies
